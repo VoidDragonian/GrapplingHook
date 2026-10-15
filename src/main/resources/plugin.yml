@@ -1,0 +1,30 @@
+name: GrapplingHook
+version: '${version}'
+main: dev.grapplinghook.GrapplingHookPlugin
+api-version: '26.3'
+description: A smooth, lightweight grappling hook with a custom crafting recipe.
+authors: [GrapplingHook]
+
+commands:
+  grapplinghook:
+    description: Give or reload the Grappling Hook
+    usage: /<command> <give [player]|reload>
+    aliases: [ghook]
+    permission: grapplinghook.admin
+
+permissions:
+  grapplinghook.use:
+    description: Allows using the grappling hook
+    default: true
+  grapplinghook.craft:
+    description: Allows crafting the grappling hook
+    default: true
+  grapplinghook.admin:
+    description: Allows /grapplinghook give and reload
+    default: op
+  grapplinghook.bypass.cooldown:
+    description: No cooldown between grapples
+    default: op
+  grapplinghook.bypass.durability:
+    description: Grapples do not use up durability
+    default: op

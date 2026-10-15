@@ -1,0 +1,50 @@
+# GrapplingHook configuration
+# NOTE: max-distance can never exceed 50 blocks (hard cap in the code).
+
+max-distance: 50.0
+cooldown-ticks: 20            # 20 ticks = 1 second
+
+pull:
+  max-speed: 1.15             # blocks per tick at full speed
+  min-speed: 0.45             # speed right after launch
+  acceleration: 0.22          # 0-1, higher = snappier, lower = smoother
+  arrival-distance: 2.0       # release when this close to the anchor
+  max-duration-ticks: 70      # safety timeout (keep under 80, see README)
+  release-on-swap: true       # let go when you switch away from the hook
+  arrival-boost: 0.30         # small upward hop so you can climb onto ledges
+
+fall-damage-grace-ticks: 40   # no fall damage for this long after a pull
+
+durability:
+  enabled: true               # each grapple uses 1 durability; the hook breaks at 0
+  max-uses: 256               # applies to newly crafted/given hooks
+
+restrictions:
+  disabled-worlds: []         # e.g. ["world_the_end", "spawn"]
+  deny-while-gliding: true
+  deny-while-riding: true
+
+effects:
+  impact-particles: true      # block-crumble burst where the hook lands
+
+rope:
+  enabled: true
+  spacing: 1.2                # blocks between rope particles
+  update-interval-ticks: 2    # how often the rope is redrawn
+  color: "#B8864B"
+
+# Use the custom item model from the resource pack (item_model component).
+# Leave FALSE until the resource pack is hosted and set in server.properties,
+# otherwise players see a missing-texture model. Change it, run /ghook reload,
+# then give yourself a NEW hook (existing hooks keep the model they were made with).
+use-resource-pack-model: false
+
+messages:
+  no-anchor: "<gray>No anchor point in range.</gray>"
+  cooldown: "<red>Recharging... {seconds}s</red>"
+  disabled-world: "<red>The grappling hook is disabled in this world.</red>"
+  not-now: "<gray>You can't use the hook right now.</gray>"
+  broken: "<red>Your Grappling Hook broke!</red>"
+  no-permission: "<red>You don't have permission to use that.</red>"
+  given: "<green>You received a Grappling Hook.</green>"
+  reloaded: "<green>GrapplingHook config reloaded.</green>"
